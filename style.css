@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Itim", cursive;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: -20px;
+  font-size: 1.4rem;
+}
+
+.correct {
+  color: rgb(9, 236, 122);
+}
+
+.wrong {
+  color: red;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.guess-number {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border: none;
+  background-color: rgb(223, 222, 222);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.guess-number:focus {
+  outline: none;
+  border: 3px solid rgb(57, 152, 207);
+  transition: border 0.1s ease;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-guess {
+  width: 40%;
+  height: 3rem;
+  border: none;
+  background-color: rgb(9, 236, 122);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.restart {
+  width: 40%;
+  height: 3rem;
+  border: none;
+  background-color: salmon;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
