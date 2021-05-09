@@ -1,20 +1,23 @@
 let randomNumber = Math.ceil(Math.random() * 100);
-let guessHistory = document.createElement("p");
 let username = prompt("username :");
 
-let inputValue = document
-  .querySelector(".guess-number")
-  .addEventListener("change", (e) => (inputValue = e.target.value));
+let indicatorElement = document.querySelector(".indicator");
+let inputGuessElement = document.querySelector(".input-guess");
+let guessNumberElement = document.querySelector(".guess-number");
+let inputHistoryElement = document.querySelector(".input-history");
 
-document.querySelector(".input-guess").addEventListener("click", (e) => {
+let inputValue = guessNumberElement.addEventListener(
+  "change",
+  (e) => (inputValue = e.target.value)
+);
+
+inputGuessElement.addEventListener("click", (e) => {
   e.preventDefault();
 
   let number = parseInt(inputValue);
-  const addWrong = () =>
-    document.querySelector(".indicator").classList.add("wrong");
+  const addWrong = () => indicatorElement.classList.add("wrong");
 
-  const indicator = (message) =>
-    (document.querySelector(".indicator").innerText = message);
+  const indicator = (message) => (indicatorElement.innerText = message);
 
   if (number < randomNumber) {
     addWrong();
@@ -22,12 +25,24 @@ document.querySelector(".input-guess").addEventListener("click", (e) => {
   } else if (number > randomNumber) {
     addWrong();
     indicator("Your Guess Too High!");
-  } else {
-    indicator(`You Guessed It, ${username}!`);
+  } else if (number === randomNumber) {
+    indicator(`You Guessed It${username ? `, ${username}` : `, Congrats`}!`);
 
-    document.querySelector(".indicator").classList.remove("wrong");
-    document.querySelector(".indicator").classList.add("correct");
-    document.querySelector(".input-guess").setAttribute("disabled", "true");
-    document.querySelector(".guess-number").setAttribute("disabled", "true");
+    indicatorElement.classList.remove("wrong");
+    indicatorElement.classList.add("correct");
+    inputGuessElement.setAttribute("disabled", "true");
+    guessNumberElement.setAttribute("disabled", "true");
+  } else {
+    addWrong();
+    indicator("Input Must be a String!");
   }
+});
+
+inputGuessElement.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  inputHistoryElement.insertAdjacentHTML(
+    "beforeend",
+    `<p>Your Guessed is ${inputValue}</p>`
+  );
 });
