@@ -6,6 +6,8 @@
 
 body {
   font-family: "Itim", cursive;
+  background: rgb(51, 48, 48);
+  color: white;
 }
 
 h1 {
@@ -19,7 +21,7 @@ h2 {
 }
 
 .correct {
-  color: rgb(9, 236, 122);
+  color: rgb(34, 173, 104);
 }
 
 .wrong {
@@ -38,8 +40,9 @@ h2 {
   margin-bottom: 1rem;
   border: none;
   background-color: rgb(223, 222, 222);
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
+  font-size: 1rem;
 }
 
 .guess-number:focus {
@@ -53,25 +56,47 @@ h2 {
   justify-content: space-around;
 }
 
-.input-guess {
+.input-guess,
+.restart {
   width: 40%;
   height: 3rem;
   border: none;
-  background-color: rgb(9, 236, 122);
   border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   color: white;
   margin-bottom: 1rem;
+  cursor: pointer;
+  transform: translateY(0%);
+  transition: transform 0.2s ease;
+}
+
+.input-guess {
+  background-color: rgb(62, 190, 126);
 }
 
 .restart {
-  width: 40%;
-  height: 3rem;
-  border: none;
   background-color: salmon;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
+}
+
+.restart:hover,
+.input-guess:hover {
+  transform: translateY(-8%);
+  transition: transform 0.2s ease;
+}
+
+.input-guess:active,
+.restart:active {
+  transform: translateY(-3%);
+  transition: transform 0.2s ease;
+}
+
+.input-history p:first-child {
+  margin-top: 3rem;
+}
+
+.input-history p {
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  border: 2px solid salmon;
 }
